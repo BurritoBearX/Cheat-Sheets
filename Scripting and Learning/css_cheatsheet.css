@@ -1,0 +1,578 @@
+/* =============================================================================
+   CSS CHEAT SHEET — Beginner Reference
+   ============================================================================= */
+
+
+/* =============================================================================
+   SELECTORS — how you target HTML elements
+   ============================================================================= */
+
+/* Target every element of a tag type */
+p {
+    color: black;
+}
+
+/* Target by class — elements with class="card" */
+.card {
+    background: white;
+}
+
+/* Target by id — the element with id="hero" */
+#hero {
+    background: navy;
+}
+
+/* Target a tag that also has a class — no space between them */
+p.intro {
+    font-size: 18px;
+}
+
+/* Target all elements — the universal selector */
+* {
+    box-sizing: border-box;
+}
+
+/* Target a child element — p inside a .card */
+.card p {
+    margin: 0;
+}
+
+/* Target a direct child only — not grandchildren */
+.card > h2 {
+    font-weight: bold;
+}
+
+/* Target an element when the user hovers over it */
+button:hover {
+    background: blue;
+}
+
+/* Target an element when it is focused (clicked into) */
+input:focus {
+    border-color: royalblue;
+}
+
+/* Target the first child element inside a parent */
+li:first-child {
+    font-weight: bold;
+}
+
+/* Target the last child element inside a parent */
+li:last-child {
+    border-bottom: none;
+}
+
+/* Target every other row — useful for table striping */
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* Target a visited link */
+a:visited {
+    color: purple;
+}
+
+/* Comma-separate selectors to apply the same rules to multiple targets */
+h1,
+h2,
+h3 {
+    font-family: sans-serif;
+}
+
+
+/* =============================================================================
+   COLORS
+   ============================================================================= */
+
+.example {
+    /* Named color */
+    color: red;
+
+    /* Hex — #RRGGBB */
+    color: #e63946;
+
+    /* RGB */
+    color: rgb(230, 57, 70);
+
+    /* RGBA — 4th value is opacity, 0 (transparent) to 1 (opaque) */
+    color: rgba(230, 57, 70, 0.5);
+
+    /* HSL — hue (0-360), saturation %, lightness % */
+    color: hsl(355, 78%, 56%);
+
+    /* Background color */
+    background-color: #f1faee;
+
+    /* Transparent */
+    background-color: transparent;
+}
+
+
+/* =============================================================================
+   TEXT & FONTS
+   ============================================================================= */
+
+.text-example {
+    /* Font family — browser uses the first available font in the list */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+
+    /* Font size */
+    font-size: 16px;       /* pixels — fixed size */
+    font-size: 1rem;       /* relative to root font size (usually 16px) */
+    font-size: 1.2em;      /* relative to the parent element's font size */
+
+    /* Font weight */
+    font-weight: normal;   /* 400 */
+    font-weight: bold;     /* 700 */
+    font-weight: 600;      /* numeric values: 100–900 */
+
+    /* Font style */
+    font-style: italic;
+
+    /* Line height — spacing between lines of text */
+    line-height: 1.6;
+
+    /* Letter spacing */
+    letter-spacing: 0.05em;
+
+    /* Text alignment */
+    text-align: left;
+    text-align: center;
+    text-align: right;
+    text-align: justify;
+
+    /* Text decoration */
+    text-decoration: underline;
+    text-decoration: none;          /* removes underline from links */
+    text-decoration: line-through;  /* strikethrough */
+
+    /* Text transform */
+    text-transform: uppercase;
+    text-transform: capitalize;
+
+    /* Prevent text from wrapping */
+    white-space: nowrap;
+
+    /* Cut off overflowing text with an ellipsis (...) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Load a custom font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.custom-font {
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* =============================================================================
+   THE BOX MODEL
+   Every element is a box: content → padding → border → margin
+   ============================================================================= */
+
+.box {
+    /* Width and height of the content area */
+    width: 300px;
+    height: 150px;
+
+    /* Padding — space INSIDE the border (between content and border) */
+    padding: 20px;              /* all four sides */
+    padding: 10px 20px;         /* top/bottom  left/right */
+    padding: 10px 15px 20px 5px; /* top right bottom left (clockwise) */
+    padding-top: 10px;
+    padding-right: 15px;
+
+    /* Border */
+    border: 2px solid black;        /* width style color */
+    border: 1px dashed #ccc;
+    border-radius: 8px;             /* rounds the corners */
+    border-radius: 50%;             /* makes a circle (if width == height) */
+
+    /* Margin — space OUTSIDE the border (between this element and others) */
+    margin: 20px;               /* all four sides */
+    margin: 0 auto;             /* top/bottom=0, left/right=auto — centers the block */
+    margin-top: 10px;
+
+    /* box-sizing: border-box makes padding and border included in the width */
+    /* Apply this globally with * { box-sizing: border-box; } */
+    box-sizing: border-box;
+}
+
+
+/* =============================================================================
+   DISPLAY
+   ============================================================================= */
+
+.display-examples {
+    /* block — takes full width, starts on a new line (div, p, h1) */
+    display: block;
+
+    /* inline — flows with text, width/height have no effect (span, a, strong) */
+    display: inline;
+
+    /* inline-block — flows with text but respects width/height */
+    display: inline-block;
+
+    /* none — hides the element completely, takes up no space */
+    display: none;
+}
+
+
+/* =============================================================================
+   FLEXBOX — one-dimensional layout (row OR column)
+   ============================================================================= */
+
+/* Apply flexbox to the parent (container) */
+.flex-container {
+    display: flex;
+
+    /* Direction of the main axis */
+    flex-direction: row;            /* default — left to right */
+    flex-direction: column;         /* top to bottom */
+    flex-direction: row-reverse;    /* right to left */
+
+    /* Alignment along the main axis (horizontal when row) */
+    justify-content: flex-start;    /* default — pack to the start */
+    justify-content: flex-end;      /* pack to the end */
+    justify-content: center;        /* center items */
+    justify-content: space-between; /* equal gaps between items */
+    justify-content: space-around;  /* equal gaps around items */
+    justify-content: space-evenly;  /* equal gaps everywhere */
+
+    /* Alignment along the cross axis (vertical when row) */
+    align-items: stretch;           /* default — stretch to fill container */
+    align-items: flex-start;        /* align to top */
+    align-items: flex-end;          /* align to bottom */
+    align-items: center;            /* vertically center */
+
+    /* Allow items to wrap onto the next line */
+    flex-wrap: wrap;
+    flex-wrap: nowrap;              /* default — everything on one line */
+
+    /* Gap between flex items */
+    gap: 16px;
+    gap: 10px 20px;                 /* row-gap  column-gap */
+}
+
+/* Apply these properties to individual flex children */
+.flex-item {
+    /* How much this item grows to fill available space */
+    flex-grow: 1;       /* takes equal share of remaining space */
+    flex-grow: 2;       /* takes twice as much as flex-grow: 1 items */
+
+    /* How much this item shrinks when space is tight */
+    flex-shrink: 0;     /* never shrink */
+
+    /* Starting size before grow/shrink is applied */
+    flex-basis: 200px;
+
+    /* Shorthand: grow shrink basis */
+    flex: 1 0 200px;
+    flex: 1;            /* common shorthand — grow equally, no fixed size */
+
+    /* Override the container's align-items for this one item */
+    align-self: center;
+}
+
+
+/* =============================================================================
+   CSS GRID — two-dimensional layout (rows AND columns)
+   ============================================================================= */
+
+/* Apply grid to the parent (container) */
+.grid-container {
+    display: grid;
+
+    /* Define columns — three equal columns */
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /* Shorthand using repeat() */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Mixed column sizes */
+    grid-template-columns: 200px 1fr 1fr;
+
+    /* Auto-fill as many columns as fit, min 150px each */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+    /* Define rows */
+    grid-template-rows: auto 1fr auto;
+
+    /* Gap between all cells */
+    gap: 16px;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+/* Control where an item sits in the grid */
+.grid-item {
+    /* Span across 2 columns */
+    grid-column: span 2;
+
+    /* Start at column line 1, end at column line 4 */
+    grid-column: 1 / 4;
+
+    /* Span across 2 rows */
+    grid-row: span 2;
+}
+
+
+/* =============================================================================
+   POSITIONING
+   ============================================================================= */
+
+.position-examples {
+    /* static — default, follows normal document flow */
+    position: static;
+
+    /* relative — offset from its normal position, other elements unaffected */
+    position: relative;
+    top: 10px;
+    left: 20px;
+
+    /* absolute — removed from flow, positioned relative to nearest non-static ancestor */
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    /* fixed — stays in place even when scrolling, relative to the viewport */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    /* sticky — scrolls with page until it hits an offset, then sticks */
+    position: sticky;
+    top: 0;
+
+    /* z-index controls stack order — higher number appears on top */
+    z-index: 10;
+}
+
+
+/* =============================================================================
+   SIZING UNITS
+   ============================================================================= */
+
+.units {
+    width: 300px;       /* pixels — absolute, device-independent */
+    width: 50%;         /* percent of the parent element's width */
+    width: 50vw;        /* 50% of the viewport width */
+    height: 50vh;       /* 50% of the viewport height */
+    font-size: 1rem;    /* relative to root font size (html element) */
+    font-size: 1.5em;   /* relative to this element's parent font size */
+    padding: 1rem;
+    max-width: 1200px;  /* never wider than 1200px */
+    min-height: 100vh;  /* at least the full viewport height */
+}
+
+
+/* =============================================================================
+   BACKGROUNDS
+   ============================================================================= */
+
+.bg-examples {
+    background-color: #f0f0f0;
+
+    /* Background image */
+    background-image: url("hero.jpg");
+
+    /* Don't repeat the image */
+    background-repeat: no-repeat;
+
+    /* Cover the entire element, cropping if needed */
+    background-size: cover;
+
+    /* Contain the full image inside the element */
+    background-size: contain;
+
+    /* Center the image */
+    background-position: center;
+
+    /* Shorthand */
+    background: url("hero.jpg") center/cover no-repeat;
+
+    /* Linear gradient — top to bottom */
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+
+    /* Linear gradient — left to right */
+    background: linear-gradient(to right, #e63946, #457b9d);
+
+    /* Diagonal gradient */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+
+/* =============================================================================
+   SHADOWS
+   ============================================================================= */
+
+.shadow-examples {
+    /* box-shadow: offset-x  offset-y  blur  spread  color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Multiple shadows separated by commas */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    /* Inset shadow — shadow goes inside the element */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+
+    /* text-shadow: offset-x  offset-y  blur  color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =============================================================================
+   TRANSITIONS & ANIMATIONS
+   ============================================================================= */
+
+/* Smooth change when a property value changes */
+button {
+    background-color: royalblue;
+    /* property  duration  easing */
+    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;     /* animate all changing properties */
+}
+
+button:hover {
+    background-color: darkblue;    /* will animate smoothly over 0.3s */
+}
+
+/* Define a keyframe animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to an element */
+.animated {
+    /* name  duration  easing  delay  iterations */
+    animation: fadeIn 0.5s ease 0s 1;
+    animation: fadeIn 0.5s ease;       /* shorthand */
+    animation-iteration-count: infinite; /* loop forever */
+}
+
+/* Common transform functions */
+.transforms {
+    transform: translateX(20px);        /* move right 20px */
+    transform: translateY(-10px);       /* move up 10px */
+    transform: scale(1.1);             /* grow to 110% */
+    transform: rotate(45deg);          /* rotate 45 degrees */
+    transform: translateX(20px) scale(1.1); /* chain multiple */
+}
+
+
+/* =============================================================================
+   MEDIA QUERIES — responsive design for different screen sizes
+   ============================================================================= */
+
+/* Mobile-first approach: write base styles for small screens, then override for larger */
+
+/* Base styles — applies to all screen sizes */
+.container {
+    padding: 16px;
+}
+
+/* Tablet and up — min-width means "when screen is AT LEAST this wide" */
+@media (min-width: 768px) {
+    .container {
+        padding: 32px;
+    }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Common breakpoints reference:
+   480px   — large phones
+   768px   — tablets
+   1024px  — small desktops / landscape tablets
+   1280px  — standard desktop
+   1536px  — large desktop / wide monitors          */
+
+/* Target dark mode preference */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #ffffff;
+    }
+}
+
+
+/* =============================================================================
+   CSS VARIABLES (CUSTOM PROPERTIES)
+   ============================================================================= */
+
+/* Define variables on :root so they're available everywhere */
+:root {
+    --primary: #e63946;
+    --secondary: #457b9d;
+    --bg: #f1faee;
+    --text: #1d3557;
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Use variables with var() */
+.card {
+    background: var(--bg);
+    color: var(--text);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary {
+    background: var(--primary);
+    /* Provide a fallback if the variable is not defined */
+    color: var(--text-light, white);
+}
+
+
+/* =============================================================================
+   OVERFLOW & SCROLL
+   ============================================================================= */
+
+.overflow-examples {
+    /* visible — default, content spills outside the box */
+    overflow: visible;
+
+    /* hidden — clips anything outside the box */
+    overflow: hidden;
+
+    /* scroll — always shows scrollbars */
+    overflow: scroll;
+
+    /* auto — shows scrollbars only when needed */
+    overflow: auto;
+
+    /* Control each axis separately */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =============================================================================
+   OPACITY & VISIBILITY
+   ============================================================================= */
+
+.visibility {
+    /* opacity — 0 is fully transparent, 1 is fully opaque */
+    opacity: 0.5;
+
+    /* visibility: hidden hides the element but still takes up space */
+    visibility: hidden;
+
+    /* display: none hides the element and removes it from the layout */
+    display: none;
+}

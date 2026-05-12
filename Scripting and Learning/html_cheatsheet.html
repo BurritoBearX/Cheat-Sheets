@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!-- Every HTML file starts with this — tells the browser this is HTML5 -->
+<html lang="en">
+
+<!-- head contains metadata — nothing here is visible on the page -->
+<head>
+    <!-- Sets the character encoding — always include this -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile screens -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- The text shown in the browser tab -->
+    <title>My Page</title>
+
+    <!-- Link an external CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- body contains everything visible on the page -->
+<body>
+
+
+<!-- =========================================================
+     HEADINGS
+     ========================================================= -->
+
+<!-- h1 is the largest heading — use only one per page -->
+<h1>Main Title</h1>
+
+<!-- h2–h6 are subheadings, decreasing in size -->
+<h2>Section Title</h2>
+<h3>Subsection</h3>
+
+
+<!-- =========================================================
+     TEXT & PARAGRAPHS
+     ========================================================= -->
+
+<!-- A block of text — automatically adds spacing above and below -->
+<p>This is a paragraph of text.</p>
+
+<!-- Bold text — strong implies importance -->
+<p>This word is <strong>bold</strong> and this is <b>also bold</b>.</p>
+
+<!-- Italic text — em implies emphasis -->
+<p>This word is <em>italic</em> and this is <i>also italic</i>.</p>
+
+<!-- A line break within a paragraph — no closing tag needed -->
+<p>Line one.<br>Line two.</p>
+
+<!-- A horizontal rule — a visual dividing line -->
+<hr>
+
+<!-- Inline code snippet -->
+<p>Run the command <code>python app.py</code> to start.</p>
+
+<!-- Preformatted text — preserves spaces and line breaks, uses monospace font -->
+<pre>
+  name = "Alice"
+  print(name)
+</pre>
+
+
+<!-- =========================================================
+     LINKS
+     ========================================================= -->
+
+<!-- An anchor tag — href is the destination URL -->
+<a href="https://example.com">Visit Example</a>
+
+<!-- Open the link in a new tab -->
+<a href="https://example.com" target="_blank">Opens in new tab</a>
+
+<!-- Link to another page in the same project -->
+<a href="about.html">About Page</a>
+
+<!-- Link to a section on the same page using an id -->
+<a href="#contact">Jump to Contact</a>
+
+
+<!-- =========================================================
+     IMAGES
+     ========================================================= -->
+
+<!-- src is the image path, alt describes the image for accessibility -->
+<img src="photo.jpg" alt="A description of the photo">
+
+<!-- Set explicit width and height to prevent layout shift -->
+<img src="logo.png" alt="Company Logo" width="200" height="100">
+
+<!-- Image from an external URL -->
+<img src="https://example.com/image.png" alt="Remote image">
+
+
+<!-- =========================================================
+     LISTS
+     ========================================================= -->
+
+<!-- Unordered list — renders with bullet points -->
+<ul>
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Cherries</li>
+</ul>
+
+<!-- Ordered list — renders with numbers -->
+<ol>
+    <li>Wake up</li>
+    <li>Brush teeth</li>
+    <li>Make coffee</li>
+</ol>
+
+<!-- Nested list — a list inside a list item -->
+<ul>
+    <li>Fruits
+        <ul>
+            <li>Apples</li>
+            <li>Oranges</li>
+        </ul>
+    </li>
+    <li>Vegetables</li>
+</ul>
+
+
+<!-- =========================================================
+     TABLES
+     ========================================================= -->
+
+<!-- table wraps the whole thing; thead for headers, tbody for data rows -->
+<table>
+    <thead>
+        <tr>
+            <!-- th = table header cell — bold and centered by default -->
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- td = table data cell -->
+            <td>Alice</td>
+            <td>25</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>30</td>
+            <td>Chicago</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- =========================================================
+     FORMS
+     ========================================================= -->
+
+<!-- action is where the form sends data, method is GET or POST -->
+<form action="/submit" method="POST">
+
+    <!-- label ties to input via the "for" and "id" attributes -->
+    <label for="username">Username:</label>
+    <!-- type="text" is a single-line text field -->
+    <input type="text" id="username" name="username" placeholder="Enter username">
+
+    <label for="password">Password:</label>
+    <!-- type="password" hides the typed characters -->
+    <input type="password" id="password" name="password">
+
+    <label for="email">Email:</label>
+    <!-- type="email" validates email format automatically -->
+    <input type="email" id="email" name="email">
+
+    <label for="age">Age:</label>
+    <!-- type="number" only allows numeric input -->
+    <input type="number" id="age" name="age" min="0" max="120">
+
+    <!-- A multi-line text area -->
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" cols="40"></textarea>
+
+    <!-- A dropdown selector -->
+    <label for="color">Favorite Color:</label>
+    <select id="color" name="color">
+        <option value="red">Red</option>
+        <option value="green" selected>Green</option>
+        <option value="blue">Blue</option>
+    </select>
+
+    <!-- Checkboxes — user can select multiple -->
+    <input type="checkbox" id="agree" name="agree">
+    <label for="agree">I agree to the terms</label>
+
+    <!-- Radio buttons — user can select only one per group (same name) -->
+    <input type="radio" id="yes" name="answer" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="answer" value="no">
+    <label for="no">No</label>
+
+    <!-- required makes the field mandatory before submit -->
+    <input type="text" name="firstname" placeholder="First name" required>
+
+    <!-- Submit button sends the form -->
+    <button type="submit">Submit</button>
+
+    <!-- Regular button — does nothing without JavaScript -->
+    <button type="button">Cancel</button>
+
+</form>
+
+
+<!-- =========================================================
+     SEMANTIC LAYOUT ELEMENTS
+     ========================================================= -->
+
+<!-- header typically holds the site logo and navigation -->
+<header>
+    <h1>My Website</h1>
+    <nav>
+        <!-- nav holds the main navigation links -->
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<!-- main wraps the primary content of the page — only one per page -->
+<main>
+
+    <!-- article is a self-contained piece of content (blog post, card) -->
+    <article>
+        <h2>Blog Post Title</h2>
+        <p>Post content goes here.</p>
+    </article>
+
+    <!-- section groups related content with a heading -->
+    <section>
+        <h2>About Us</h2>
+        <p>Some information about us.</p>
+    </section>
+
+    <!-- aside holds secondary content — sidebars, callouts, ads -->
+    <aside>
+        <p>Related links or ads go here.</p>
+    </aside>
+
+</main>
+
+<!-- footer holds copyright, links, and supplementary info -->
+<footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+</footer>
+
+
+<!-- =========================================================
+     DIV & SPAN
+     ========================================================= -->
+
+<!-- div is a generic block container — takes up the full width -->
+<div class="card">
+    <p>Content inside a div.</p>
+</div>
+
+<!-- span is a generic inline container — wraps text within a line -->
+<p>This word is <span style="color: red;">highlighted</span> in red.</p>
+
+
+<!-- =========================================================
+     IDs & CLASSES
+     ========================================================= -->
+
+<!-- id is unique — only one element per page should have this id -->
+<div id="hero-section">
+    <p>Hero content</p>
+</div>
+
+<!-- class can be reused on many elements — used heavily for CSS styling -->
+<div class="card">Card 1</div>
+<div class="card">Card 2</div>
+
+<!-- An element can have multiple classes separated by spaces -->
+<div class="card featured large">Special Card</div>
+
+
+<!-- =========================================================
+     SCRIPT — add JavaScript at the bottom of body
+     ========================================================= -->
+
+<!-- Inline JavaScript -->
+<script>
+    console.log("Page loaded");
+</script>
+
+<!-- Link an external JavaScript file — defer runs it after HTML loads -->
+<script src="app.js" defer></script>
+
+
+</body>
+</html>
